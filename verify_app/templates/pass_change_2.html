@@ -1,0 +1,16 @@
+{% extends "./base.html" %}
+
+{% block content %}
+    <h1 class="text-uppercase">Change Password by New Password</h1>
+    {% if messages %}
+        {%for m in messages%}
+            {{m}}
+        {%endfor%}
+     {%endif%}
+    <form method="post" style="width: 50%;margin: auto;">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-warning">Set New Password</button>
+    </form>
+    <a href="{% url 'profile' %}">Back to Profile</a>
+{% endblock %}

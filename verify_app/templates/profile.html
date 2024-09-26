@@ -1,0 +1,13 @@
+{% extends "./base.html" %}
+
+{%block content%}
+    <h1>THIS IS THE PROFILE PAGE</h1>
+    {% if messages %}
+    <!-- {%for m in messages%} -->
+        <h3 class="text-success fw-semibold">{{m}}</h3>
+    <!-- {%endfor%} -->
+   {%endif%}
+    <h2>HELLO:{{user.username}}</h2>
+    <a class="btn btn-warning" href="{% url 'pass_change_1' %}" >CHANGE PASSWORD BY OLD PASSWORD</a>
+    <a class="btn btn-warning" href="{% url 'pass_change_2' %}" >CHANGE PASSWORD BY NEW PASSWORD</a>
+{%endblock%}

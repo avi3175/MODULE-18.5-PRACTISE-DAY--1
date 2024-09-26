@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Login Page</h1>
+    {% if messages %}
+    <!-- {%for m in messages%} -->
+        <h3 class="text-success fw-semibold">{{m}}</h3>
+    <!-- {%endfor%} -->
+ {%endif%}
+    <form method="POST" style="width: 50%;margin: auto;" >
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Log In</button>
+    </form>
+{% endblock %}

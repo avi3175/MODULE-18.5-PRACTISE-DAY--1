@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>THIS IS THE SIGN UP PAGE</h1>
+     {% if messages %}
+        {%for m in messages%}
+            {{m}}
+        {%endfor%}
+     {%endif%}
+    {% load crispy_forms_tags %}
+    <form method="POST" style="width: 50%;margin: auto;">
+        {% csrf_token %}
+        
+        {% if form %}
+            {{ form|crispy }}
+        {% else %}
+            {% for fm in forms %}
+                {{ fm.label_tag }}
+                {{ fm }}
+                {{ fm.errors|striptags }}
+            {% endfor %}
+        {% endif %}
+        <button class="btn btn-primary" type="submit">SUBMIT</button>
+    </form>
+{% endblock %}
